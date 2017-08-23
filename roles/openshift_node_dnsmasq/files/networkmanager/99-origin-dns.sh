@@ -108,7 +108,12 @@ EOF
           echo "# nameserver updated by /etc/NetworkManager/dispatcher.d/99-origin-dns.sh" >> ${NEW_RESOLV_CONF}
       fi
       sed -e '/^nameserver.*$/d' /etc/resolv.conf >> ${NEW_RESOLV_CONF}
-      echo "nameserver "${def_route_ip}"" >> ${NEW_RESOLV_CONF}
+      resolv_ip=$(cat /etc/dnsmasq.d/origin-dns.conf | grep listen| cut -d'=' -f2)
+      if [ "${def_route_ip}" != "${resolv_ip}" ];then
+        echo "nameserver "${resolv_ip}"" >> ${NEW_RESOLV_CONF}
+      else
+        echo "nameserver "${def_route_ip}"" >> ${NEW_RESOLV_CONF}
+      fi
       if ! grep -q 'search.*cluster.local' ${NEW_RESOLV_CONF}; then
         sed -i '/^search/ s/$/ cluster.local/' ${NEW_RESOLV_CONF}
       fi
