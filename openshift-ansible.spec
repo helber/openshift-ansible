@@ -9,7 +9,7 @@
 %global __requires_exclude ^/usr/bin/ansible-playbook$
 
 Name:           openshift-ansible
-Version:        3.6.173.0.13
+Version:        3.6.173.0.31
 Release:        1%{?dist}
 Summary:        Openshift and Atomic Enterprise Ansible
 License:        ASL 2.0
@@ -280,6 +280,102 @@ Atomic OpenShift Utilities includes
 
 
 %changelog
+* Fri Sep 08 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.31-1
+- logging set memory request to limit (jcantril@redhat.com)
+- Notice: CFME 4.5 tech preview is no longer supported or accepting updates
+  (tbielawa@redhat.com)
+- skip openshift_cfme_nfs_server if not using nfs (sdw35@cornell.edu)
+- Change default CFME namespace to use reserved openshift- prefix
+  (tbielawa@redhat.com)
+- nfs only run if cloud_provider not defined (sdw35@cornell.edu)
+- openshift_cfme: add nfs directory support (fsimonce@redhat.com)
+- Backport updated ansible_syntax checks (rteague@redhat.com)
+- Update calico to v2.5 (djosborne10@gmail.com)
+- Add independent registry auth support (mgugino@redhat.com)
+- Fix missing space in calico ansible roles (djosborne10@gmail.com)
+- Missing space (kp@tigera.io)
+- Clean up Calico readme (djosborne10@gmail.com)
+- Bump calico to v2.4.1 (djosborne10@gmail.com)
+- Use sdn_cluster_network_cidr as default calico pool (djosborne10@gmail.com)
+
+* Wed Sep 06 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.30-1
+- 
+
+* Fri Sep 01 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.29-1
+- 
+
+* Fri Sep 01 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.28-1
+- Remove Jinja delimiters from when conditions (rteague@redhat.com)
+
+* Thu Aug 31 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.27-1
+- 
+
+* Wed Aug 30 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.26-1
+- annotate the infra projects for logging to fix bz1480988
+  (jcantril@redhat.com)
+- added additional variables for logging and metrics (cbucur@redhat.com)
+- Fix group conditional requirements (rteague@redhat.com)
+- Updating openshift_service_catalog to use oc_service over oc_obj to resolve
+  idempotency issues being seen from rerunning role (ewolinet@redhat.com)
+
+* Wed Aug 30 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.25-1
+- 
+
+* Wed Aug 30 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.24-1
+- bug 1482661. Preserve ES dc nodeSelector and supplementalGroups
+  (jcantril@redhat.com)
+- bug 1480878. Default pvc for logging (jcantril@redhat.com)
+- Backport to 3.6 - Bug 1471322: logging roles based image versions
+  (jwozniak@redhat.com)
+
+* Tue Aug 29 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.23-1
+- 
+
+* Tue Aug 29 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.22-1
+- Backport recent tox test updates (rteague@redhat.com)
+
+* Mon Aug 28 2017 Scott Dodson <sdodson@redhat.com> 3.6.173.0.21-2
+- Update dotnet 2.0 content (sdodson@redhat.com)
+
+* Mon Aug 28 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.21-1
+- 
+
+* Mon Aug 28 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.20-1
+- 
+
+* Sun Aug 27 2017 Scott Dodson <sdodson@redhat.com> 3.6.173.0.19-2
+- Fix scaleup on containerized installations (sdodson@redhat.com)
+
+* Sun Aug 27 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.19-1
+- 
+
+* Sat Aug 26 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.18-1
+- fix #5206.  Default ES cpu limit (jcantril@redhat.com)
+- remove out of scope variable from exception message
+  (maxamillion@fedoraproject.org)
+- raise AosVersionException if no expected packages found by dnf query
+  (maxamillion@fedoraproject.org)
+- add dnf support to roles/openshift_health_checker/library/aos_version.py
+  (maxamillion@fedoraproject.org)
+
+* Fri Aug 25 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.17-1
+- 
+
+* Fri Aug 25 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.16-1
+- 
+
+* Thu Aug 24 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.15-1
+- 
+
+* Thu Aug 24 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.14-1
+- 
+
+* Thu Aug 24 2017 Scott Dodson <sdodson@redhat.com> 3.6.173.0.13-2
+- Add dotnet 2.0 to v3.6 (sdodson@redhat.com)
+- Update v3.6 content (sdodson@redhat.com)
+- Backport to 3.6 - Bug 1468987: kibana_proxy OOM (jwozniak@redhat.com)
+- Passing memory and cpu limit for ops ES install (ewolinet@redhat.com)
+
 * Thu Aug 24 2017 Jenkins CD Merge Bot <smunilla@redhat.com> 3.6.173.0.13-1
 - If IP4_NAMESERVERS are unset then pull the value from /etc/resolv.conf
   (sdodson@redhat.com)
